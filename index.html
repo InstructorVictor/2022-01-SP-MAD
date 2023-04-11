@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <!-- Basic Monaca styling -->
+    <link rel="stylesheet" href="components/loader.css">
+    <!-- jQM CSS Code -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <!-- Add Themeroller colors -->
+    <link rel="stylesheet" href="css/mycolors.min.css">
+    <link rel="stylesheet" href="css/myfont.css">
+    <!-- NOTE: custom CSS code should be AFTER basic jQM code -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ <!-- First screen: Welcome -->
+    <section data-role="page" id="pgWelcome">
+        <article role="main" class="ui-content">
+            <h1>Comic Book Database</h1>
+            <!-- Add an image to the screen. Customize w/ CSS -->
+            <img src="img/sam-01.jpg" alt="Marvel Action Spider-Man #1">
+            <!-- To-do: Add a jQM Grid -->
+            <a href="#pgSignUp" data-role="button" data-transition="flip">Sign Up</a>
+            <a href="#pgLogIn" data-role="button">Log In</a>  
+        </article>
+    </section>
+    <!-- END pgWelcome -->
+
+    <!-- Sign Up screen -->
+    <section data-role="page" id="pgSignUp">
+        <header data-role="header" data-add-back-btn="true">
+            <h1>Sign Up</h1>
+        </header>
+        <article role="main" class="ui-content">
+            <!-- Form to ask for account creation credentials. ID for use with JS -->
+            <form id="fmSignUp">
+                Email <input required type="email" placeholder="peter@dailybugle.com" id="inEmailSignUp">
+                Password <input required  type="password" placeholder="Spider99!" id="inPasswordSignUp">
+                Confirm Password <input required  type="password" placeholder="Spider99!" id="inPasswordConfirmSignUp">
+                
+                <input type="reset" value="Clear">
+                <input type="submit" value="Create"> 
+            </form>
+        </article>
+    </section>
+    <!-- END Sign Up -->
+
+    <!-- Log In screen -->
+    <section data-role="page" id="pgLogIn">
+        <header data-role="header" data-add-back-btn="true">
+            <h1>Login</h1>
+        </header>
+        <article role="main" class="ui-content">
+            <form id="fmLogIn">
+                Email:      <input type="email"    placeholder="diana@wonder.org" id="inEmailLogIn">
+                Password:   <input type="password" placeholder="Spider99!"        id="inPasswordLogIn">
+                <!-- To-do: Grid -->
+                <input type="reset" value="Clear">
+                <input type="submit" value="Go" data-icon="home" data-iconpos="bottom">
+            </form>
+            <br>
+         
+        </article>
+    </section> 
+    <!-- END Log In -->
+
+    <!-- Home screen with an ID -->
+    <section data-role="page"  id="pgHome">
+        <header data-role="header"> <!-- Top of screen -->
+            <a href="#pgOptions" data-icon="gear" data-iconpos="notext" class="ui-btn-right" data-transition="pop">Options</a>
+            <h1>Home</h1>
+                        <!-- Top navigation bar -->
+                        <nav data-role="navbar">
+                            <!-- Buttons are a collection of Links -->
+                            <ul>
+                                <li><a href="#pgHome" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+                                <li><a href="#pgSaveComicz" data-icon="heart" >Save</a></li>
+                                <li><a href="#pgViewComics" data-icon="eye" >View</a></li>
+                            </ul>
+                        </nav>
+        </header>
+        
+        <article role="main" class="ui-content"> <!-- Center of screen -->
+            <!-- To-do: add image and text -->
+        </article>
+
+        <footer data-role="footer" data-position="fixed"> <!-- Bottom of screen -->
+        <!-- id Attribute can be used by CSS and JS -->
+            <h4 class="userEmail">Copyright 2022</h4>
+        </footer>
+    </section>
+    <!-- END Home screen -->
+
+    <!-- Save Comics screen with an ID -->
+    <section data-role="page" data-theme="b" id="pgSaveComicz">
+        <header data-role="header">
+            <h1>Save Comics</h1>
+            <!-- Top navigation bar -->
+            <nav data-role="navbar">
+                <!-- Buttons are a collection of Links -->
+                <ul>
+                    <li><a href="#pgHome" data-icon="home">Home</a></li>
+                    <li><a href="#pgSaveComicz" data-icon="heart" class="ui-btn-active ui-state-persist">Save</a></li>
+                    <li><a href="#pgViewComics" data-icon="eye">View</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article role="main" class="ui-content">
+            <form id="fmSaveComic">
+                Title   <input type="text" required id="inTitleSave">
+                Number  <input type="number" required id="inNumberSave">
+                Year    <input type="number" required id="inYearSave">
+                Publisher<input type="text" id="inPublisherSave">
+                Notes   <textarea id="inNotesSave"></textarea>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a"><input type="reset" value="Cancel"></div>
+                    <div class="ui-block-b"><input type="submit" value="Save"></div>
+                </div>
+            </form>
+
+        </article>
+
+        <footer data-role="footer" data-position="fixed">
+            <h4 class="userEmail">Comics Sale</h4>
+        </footer>
+    </section>
+    <!-- END Save Comics screen -->
+
+    <!-- View comics screen with an ID -->
+    <section data-role="page" data-theme="c" id="pgViewComics">
+         <header data-role="header">
+            <h1>View Comics</h1>
+            <!-- Top navigation bar -->
+            <nav data-role="navbar">
+                <!-- Buttons are a collection of Links -->
+                <ul>
+                    <li><a href="#pgHome" data-icon="home">Home</a></li>
+                    <li><a href="#pgSaveComicz" data-icon="heart" >Save</a></li>
+                    <li><a href="#pgViewComics" data-icon="eye" class="ui-btn-active ui-state-persist">View</a></li>
+                </ul>
+            </nav>
+        </header>
+        <article role="main" class="ui-content">
+           <!-- Placeholder that will display the comics from the database -->
+           <div id="divViewComics">ddfdfdf d dd dfd fddfdf</div>
+        </article>
+        <footer data-role="footer" data-position="fixed">
+            <h4 class="userEmail">Comics Sale</h4>
+        </footer>
+    </section>
+    <!--END View comics screen -->
+
+    <!-- Options START -->
+    <section data-role="page" data-dialog="true" id="pgOptions">
+        <header data-role="header">
+            <h1>Options</h1>
+        </header>
+        <article role="main" class="ui-content">
+            <h2>Options</h2>
+            <!-- Button to delete the whole database (via JS) -->
+            <a href="#" data-role="button" id="btnDeleteCollection">Delete Collection</a>
+            <!-- Simple button first, later with JavaScript -->
+            <a href="#" data-role="button" id="btnLogOut">Log Out</a>
+        </article>
+    </section>
+    <!-- Options END -->
+
+    <!-- View/Edit a Comic Popup START -->
+    <section data-role="page" id="pgComicViewEdit">
+        <header data-role="header">
+            <h1>Info</h1>
+        </header>
+        <article role="main" class="ui-content">
+            <!-- Pre-poluate a <form> with all the current info of the comic, so a User can View or Edit that data -->
+            <form id="fmEditComicInfo">
+                Title   <input type="text" required id="inTitleEdit">
+                Number  <input type="number" required id="inNumberEdit">
+                Year    <input type="number" required id="inYearEdit">
+                Publisher<input type="text" id="inPublisherEdit">
+                Notes   <textarea id="inNotesEdit"></textarea>
+                <!-- New button to Delete this Comic; is a generic button -->
+                <input type="button" value="Delete" id="btnDeleteComic">
+                <div class="ui-grid-a">
+                    <!-- Not a type="reset" bc we don't want to clear the form, but close the popup -->
+                    <div class="ui-block-a"><input type="button" value="Close" id="btnEditComicCancel"></div>
+                    <!-- Submit button to make a chance to the comic -->
+                    <div class="ui-block-b"><input type="submit" value="Update"></div>
+                </div>
+            </form>
+        </article>
+    </section>
+    <!-- View/Edit a Comic Popup END -->
+
+    <!-- Best to have JS at the end, for for full compatibility -->
+    <script src="components/loader.js"></script>
+    <!-- Load the jQM Library -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <!-- Load PouchDB infrastructure  before your custome code -->
+    <script src="js/pouchdb-7.3.0.min.js"></script>
+    <!-- Load our custom -->
+    <script src='js/main.js'></script>
+</body>
+</html>
